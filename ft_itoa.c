@@ -31,12 +31,11 @@ static int	a_len(int n)
 	return (count);
 }
 
-
 char	*ft_itoa(int nb)
 {
 	char	*res;
-	int	len;
-	int	i;
+	int		len;
+	int		i;
 	long	n;
 
 	n = nb;

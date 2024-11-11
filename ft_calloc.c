@@ -14,7 +14,7 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void	*res;
+	void			*res;
 	unsigned char	*r;
 
 	if (size * nmemb < 0)
@@ -29,7 +29,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (res);
 }
 /*
-int main() {
+int	main(void) {
    int n = 5;
    int *array;
 	int	*a;
@@ -39,7 +39,7 @@ int main() {
    if (array == NULL)
 	{
       		fprintf(stderr, "Memory allocation failed\n");
-      		return 1;
+      		return (1);
 	}
    printf("Array elements after calloc: ");
    while (n-- > 0)
@@ -47,5 +47,5 @@ int main() {
    printf("\n");
 
    free(array);
-   return 0;
+   return (0);
 }*/

@@ -12,7 +12,6 @@
 
 #include "libft.h"
 
-
 void	ft_putnbr_fd(int nb, int fd)
 {
 	long	n;
@@ -32,7 +31,7 @@ void	ft_putnbr_fd(int nb, int fd)
 	}
 }
 /*
-int	main()
+int	main(void)
 {
 	int	fd;
 

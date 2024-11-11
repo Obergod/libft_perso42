@@ -16,8 +16,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*res;
 	char	*stock;
-	int	len1;
-	int	len2;
+	int		len1;
+	int		len2;
 
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
@@ -27,7 +27,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	stock = res;
 	while (len1--)
 		*res++ = *s1++;
-	while(len2--)
+	while (len2--)
 		*res++ = *s2++;
 	*res = '\0';
 	return (stock);

@@ -41,7 +41,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
 	char	*stock;
-	int	len;
+	int		len;
 
 	len = get_trimlen(s1, set);
 	printf("len : %d\n", len);

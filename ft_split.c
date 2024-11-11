@@ -44,6 +44,7 @@ static char	**res_split(char **res, char const *s, char c, int x)
 {
 	int	i;
 	int	j;
+
 	i = 0;
 	while (s[x])
 	{
@@ -68,7 +69,7 @@ static char	**res_split(char **res, char const *s, char c, int x)
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
-	int	x;
+	int		x;
 
 	x = 0;
 	res = malloc(sizeof(char *) * count_words(s, c) + 1);
