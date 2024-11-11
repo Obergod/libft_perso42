@@ -6,13 +6,15 @@
 #    By: mafioron <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 15:31:44 by mafioron          #+#    #+#              #
-#    Updated: 2024/11/08 14:20:46 by mafioron         ###   ########.fr        #
+#    Updated: 2024/11/11 15:03:35 by mafioron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = ./*.c
+BSRC = xxxbonuses.c
 
 OBJ = $(SRC:.c=.o)
+BOBJ = $(BSRC:.c=.o)
 
 NAME = libft.a
 
@@ -22,6 +24,10 @@ all:$(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
+
+bonus: $(OBJ) $(BOBJ)
+	ar rcs $(NAME) $(BOBJ)
+
 clean:
 	rm -f $(OBJ)
 fclean: 
