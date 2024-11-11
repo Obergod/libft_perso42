@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:18:28 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 13:23:41 by mafioron         ###   ########.fr       */
+/*   Created: 2024/11/08 16:54:25 by mafioron          #+#    #+#             */
+/*   Updated: 2024/11/08 17:46:51 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*res;
-	int	i;
+	char	*stock;
+	int	len1;
+	int	len2;
 
-	i = 0;
-	res = malloc(sizeof(char) * ft_strlen(s) + 1);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	res = malloc(sizeof(char) * (len1 + len2) + 1);
 	if (!res)
 		return (NULL);
-	while(s[i])
-	{
-		res[i] = f(i, s[i]);
-		i++;
-	}
-	return (res);
+	stock = res;
+	while (len1--)
+		*res++ = *s1++;
+	while(len2--)
+		*res++ = *s2++;
+	*res = '\0';
+	return (stock);
 }
+/*
+int	main(int ac, char **av)
+{
+	printf("this is join : %s", ft_strjoin(av[1], av[2]));
+}*/

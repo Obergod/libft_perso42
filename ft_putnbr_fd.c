@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:18:28 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 13:23:41 by mafioron         ###   ########.fr       */
+/*   Created: 2024/11/11 14:07:53 by mafioron          #+#    #+#             */
+/*   Updated: 2024/11/11 14:12:17 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
-{
-	char	*res;
-	int	i;
 
-	i = 0;
-	res = malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (!res)
-		return (NULL);
-	while(s[i])
+void	ft_putnbr_fd(int nb, int fd)
+{
+	long	n;
+
+	n = nb;
+	if (n < 0)
 	{
-		res[i] = f(i, s[i]);
-		i++;
+		ft_putchar_fd('-', fd);
+		n *= -1;
 	}
-	return (res);
+	if (n >= 0 && n <= 9)
+		ft_putchar_fd(n + '0', fd);
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
 }
+/*
+int	main()
+{
+	int	fd;
+
+	fd = open("test.txt",O_WRONLY);
+	ft_putnbr_fd(123456789, fd);
+	close(fd);
+	return (0);
+}*/

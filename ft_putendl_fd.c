@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:18:28 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 13:23:41 by mafioron         ###   ########.fr       */
+/*   Created: 2024/11/11 13:58:08 by mafioron          #+#    #+#             */
+/*   Updated: 2024/11/11 14:06:33 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_putendl_fd(char *s, int fd)
 {
-	char	*res;
-	int	i;
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}
 
-	i = 0;
-	res = malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (!res)
-		return (NULL);
-	while(s[i])
-	{
-		res[i] = f(i, s[i]);
-		i++;
-	}
-	return (res);
+int	main()
+{
+	int	fd;
+
+	fd = open("test.txt", O_WRONLY);
+	ft_putstr_fd("test", fd);
+	close(fd);
+	return (0);
 }

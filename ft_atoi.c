@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:18:28 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 13:23:41 by mafioron         ###   ########.fr       */
+/*   Created: 2024/11/08 11:49:59 by mafioron          #+#    #+#             */
+/*   Updated: 2024/11/08 11:50:07 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	ft_isspace(const char c)
 {
-	char	*res;
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (1);
+	return (0);
+}
+
+int	ft_atoi(const char *nptr)
+{
 	int	i;
+	int	res;
+	int	neg;
 
 	i = 0;
-	res = malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (!res)
-		return (NULL);
-	while(s[i])
+	neg = 1;
+	res = 0;
+	while (ft_isspace(nptr[i]) == 1)
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		res[i] = f(i, s[i]);
+		if (nptr[i] == '-')
+			neg = -neg;
 		i++;
 	}
-	return (res);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		res = res * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (res * neg);
 }

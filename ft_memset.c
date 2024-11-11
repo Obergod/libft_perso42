@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:18:28 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 13:23:41 by mafioron         ###   ########.fr       */
+/*   Created: 2024/11/07 11:36:01 by mafioron          #+#    #+#             */
+/*   Updated: 2024/11/07 16:32:00 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	*ft_memset(void *s, int c, size_t n)
 {
-	char	*res;
-	int	i;
-
-	i = 0;
-	res = malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (!res)
-		return (NULL);
-	while(s[i])
-	{
-		res[i] = f(i, s[i]);
-		i++;
-	}
-	return (res);
+	unsigned char *dst;
+	dst = (unsigned char *)s;
+	while (n-- > 0)
+		*dst++ = c;
+	return(s);
 }
+/*
+int	main(int ac, char **av)
+{
+	char *str;
+
+	str = (char *)ft_memset(atoi(av[1]), '-', 7);
+	printf("fill of memset : %s\n", str);
+}*/

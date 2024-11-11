@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:18:28 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 13:23:41 by mafioron         ###   ########.fr       */
+/*   Created: 2024/11/08 12:34:42 by mafioron          #+#    #+#             */
+/*   Updated: 2024/11/08 13:13:44 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	char	*res;
-	int	i;
+	unsigned char	*s1;
+	unsigned char	*s2;
 
-	i = 0;
-	res = malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (!res)
-		return (NULL);
-	while(s[i])
+	s1 = (unsigned char *)str1;
+	s2 = (unsigned char *)str2;
+	while (n-- > 0)
 	{
-		res[i] = f(i, s[i]);
-		i++;
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+		s1++;
+		s2++;
 	}
-	return (res);
+	return (0);
 }
+/*
+int	main(int ac, char **av)
+{
+	printf("this is my cmp %d\n", ft_memcmp(av[1], av[2], atoi(av[3])));
+	printf("this is real cmp %d\n", memcmp(av[1], av[2], atoi(av[3])));
+}*/
