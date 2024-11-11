@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 17:50:45 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/08 19:52:53 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/11 17:36:49 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	*res = '\0';
 	return (stock);
 }
-
+/*
 int	main(int ac, char **av)
 {
 	printf("this is trimmed : %s\n", ft_strtrim(av[1], av[2]));
-}
+}*/

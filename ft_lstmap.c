@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 16:41:43 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 17:41:23 by mafioron         ###   ########.fr       */
+/*   Created: 2024/11/11 17:45:13 by mafioron          #+#    #+#             */
+/*   Updated: 2024/11/11 18:06:16 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *temp;
+	t_list *res;
+	int	lst_len;
 
-	if (!*lst)
-		return;
-	while (*lst)
+	lst_len = ft_lstsize(lst);
+	res = malloc(sizeof(t_list) * lst_len);
+		if (!res)
+			return (NULL);
+	while (lst)
 	{
-		temp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = temp;
+		res->content = f(lst->content);
+		res = res->next;
 	}
-	lst = NULL;
-}
-
-void	ft_putzero(void *s)
-{
-	unsigned char	*dst;
-
-	dst = (unsigned char *)s;
-		*dst = '\0';
+	res->next = NULL;
+	ft_lstclear(&lst, del);
+	return (res);
 }
 /*
 int	main()

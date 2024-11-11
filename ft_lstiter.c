@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:58:08 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 17:36:37 by mafioron         ###   ########.fr       */
+/*   Created: 2024/11/11 17:41:54 by mafioron          #+#    #+#             */
+/*   Updated: 2024/11/11 17:44:27 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	while(lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }
-/*
-int	main(void)
-{
-	int	fd;
-
-	fd = open("test.txt", O_WRONLY);
-	ft_putstr_fd("test", fd);
-	close(fd);
-	return (0);
-}*/
