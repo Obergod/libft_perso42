@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:52:04 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 13:22:41 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:15:20 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ static char	**res_split(char **res, char const *s, char c, int x)
 		{
 			res[i] = malloc(sizeof(char) * count_char(s + x, c) + 1);
 			if (!res[i])
+			{
+				free(res);
 				return (NULL);
+			}
 			while (s[x] != c && s[x])
 				res[i][j++] = s[x++];
 			res[i][j] = '\0';

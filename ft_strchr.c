@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 11:49:59 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/12 15:53:08 by mafioron         ###   ########.fr       */
+/*   Created: 2024/11/11 18:49:26 by mafioron          #+#    #+#             */
+/*   Updated: 2024/11/12 16:54:08 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_isspace(const char c)
+#include "libft.h"
+
+char	*ft_strchr(const char *s, int c)
 {
-	if ((c >= 9 && c <= 13) || c == 32)
-		return (1);
-	return (0);
+	char	*stock;
+
+	if (c == 0)
+	{
+		stock = (char *)s + ft_strlen(s);
+		return (stock);
+	}
+	while (*s)
+	{
+		if (*s == (unsigned char)c)
+		{
+			stock = (char *)s;
+			return (stock);
+		}
+		s++;
+	}
+	return (NULL);
 }
 
-int	ft_atoi(const char *nptr)
-{
-	int	i;
-	int	res;
-	int	neg;
-
-	i = 0;
-	neg = 1;
-	res = 0;
-	while (ft_isspace(nptr[i]) == 1)
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			neg = -neg;
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		res = res * 10 + (nptr[i] - '0');
-		i++;
-	}
-	return (res * neg);
-}

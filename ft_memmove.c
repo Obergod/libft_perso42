@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:58:56 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/07 17:25:02 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/12 15:20:52 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		s += n;
 		d += n;
 		while (n--)
-			*d-- = *s--;
+			*--d = *--s;
 	}
 	else
 		while (n--)
@@ -34,9 +34,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 /*
 int	main(int ac, char **av)
 {
-	char	*res;
-	char	str[8] = "foo-bar";
+	char str[] = "0123456789";
+	printf ("this original string : %s\n", str);
+	char	*res;	
 
-	res = (char *) ft_memmove(str1, str2, 11);
+	res = (char *) ft_memmove(str + 1, str, 2);
 	printf("this is mv : %s\n", res);
 }*/

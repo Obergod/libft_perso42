@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 18:57:06 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 14:03:12 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/12 15:49:50 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (s1[i] && s2[i] && (size_t)i < n)
+	if (n < 1)
+		return (0);
+	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n - 1)
 		i++;
 	return (s1[i] - s2[i]);
 }

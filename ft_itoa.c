@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:27:16 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/09 13:57:42 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:14:02 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	a_len(int n)
 	count = 0;
 	if (n < 0)
 		count++;
-	while (ft_abs(n) / 10 != 0)
+	while (ft_abs(n) / 10 > 0)
 		count++;
 	return (count);
 }
@@ -39,8 +39,8 @@ char	*ft_itoa(int nb)
 	long	n;
 
 	n = nb;
-	i = len - 1;
 	len = a_len(n);
+	i = len - 1;
 	res = malloc(sizeof(char) * len + 1);
 	if (!res)
 		return (NULL);

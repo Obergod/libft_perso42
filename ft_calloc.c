@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:14:29 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/08 14:37:22 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:04:26 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,15 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void			*res;
-	unsigned char	*r;
+	size_t	len;
 
-	if (size * nmemb < 0)
+	len = (size * nmemb);
+	if ((int)len < 0 || ((int)nmemb < 0 && (int)size < 0))
 		return (NULL);
-	if (size == 0 || nmemb == 0)
-		return (NULL);
-	res = (void *)malloc(size * nmemb);
+	res = (void *)malloc(len);
 	if (!res)
 		return (NULL);
-	r = (unsigned char *)res;
-	ft_bzero(r, nmemb);
+	ft_memset(res, 0, len);
 	return (res);
 }
 /*
