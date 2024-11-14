@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 17:50:45 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 17:36:49 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/14 14:54:36 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,19 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		len;
 
 	len = get_trimlen(s1, set);
-	printf("len : %d\n", len);
-	res = malloc(sizeof(char) * len + 1);
+	if (len >= 0)
+		res = malloc(sizeof(char) * len + 1);
+	else
+	{
+		res = malloc(sizeof(char));
+		*res = '\0';
+		return (res);
+	}
 	if (!res)
 		return (NULL);
 	while (*s1 && is_charset(*s1, set))
 		s1++;
 	stock = res;
-	printf("%c\n", *s1);
 	while (len--)
 		*res++ = *s1++;
 	*res = '\0';

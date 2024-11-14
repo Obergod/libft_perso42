@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:41:43 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 17:41:23 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/14 19:20:22 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *temp;
+	t_list	*temp;
 
 	if (!*lst)
-		return;
+		return ;
 	while (*lst)
 	{
 		temp = (*lst)->next;
@@ -26,7 +26,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	}
 	lst = NULL;
 }
-
+/*
 void	ft_putzero(void *s)
 {
 	unsigned char	*dst;
@@ -34,7 +34,7 @@ void	ft_putzero(void *s)
 	dst = (unsigned char *)s;
 		*dst = '\0';
 }
-/*
+
 int	main()
 {
 	t_list	*one;

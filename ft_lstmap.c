@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 17:45:13 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 18:06:16 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/14 19:19:04 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *res;
-	int	lst_len;
+	t_list	*res;
+	t_list	*stock;
 
-	lst_len = ft_lstsize(lst);
-	res = malloc(sizeof(t_list) * lst_len);
-		if (!res)
-			return (NULL);
+	res = 0;
 	while (lst)
 	{
-		res->content = f(lst->content);
-		res = res->next;
+		stock = ft_lstnew(f(lst->content));
+		if (!stock)
+		{
+			ft_lstclear(&res, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&res, stock);
+		lst = lst->next;
 	}
-	res->next = NULL;
 	ft_lstclear(&lst, del);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:58:56 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/12 15:20:52 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/14 14:13:24 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	d = (char *)dest;
 	s = (char *)src;
+	if (!src && !dest)
+		return (NULL);
 	if (src < dest)
 	{
 		s += n;

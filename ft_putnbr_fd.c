@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:07:53 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 14:12:17 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:48:02 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_putnbr_fd(int nb, int fd)
 {
 	long	n;
 
+	if (fd == -1)
+		return ;
 	n = nb;
 	if (n < 0)
 	{

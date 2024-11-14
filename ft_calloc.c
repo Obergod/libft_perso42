@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:14:29 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/12 19:04:26 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/14 19:16:19 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void			*res;
+	void	*res;
 	size_t	len;
 
 	len = (size * nmemb);

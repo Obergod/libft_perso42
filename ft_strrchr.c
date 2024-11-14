@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:51:28 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/12 16:58:24 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:30:23 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strrchr(const char *src, int c)
 	char	*s;
 
 	s = (char *)src;
-	if (c == '\0')
+	if ((unsigned char)c == '\0')
 	{
 		s = (char *)src + ft_strlen(src);
 		return (s);

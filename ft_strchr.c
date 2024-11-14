@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 18:49:26 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/12 16:54:08 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/14 19:18:12 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strchr(const char *s, int c)
 {
 	char	*stock;
 
-	if (c == 0)
+	if ((unsigned char)c == '\0')
 	{
 		stock = (char *)s + ft_strlen(s);
 		return (stock);
@@ -32,4 +32,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
-

@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:48:48 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 13:57:26 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/14 17:08:25 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (fd == -1)
+		return ;
 	while (*s)
 		ft_putchar_fd(*s++, fd);
 }

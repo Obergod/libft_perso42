@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:52:04 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/12 19:15:20 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/14 19:18:38 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,26 @@ char	**ft_split(char const *s, char c)
 	int		x;
 
 	x = 0;
-	res = malloc(sizeof(char *) * count_words(s, c) + 1);
+	res = malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!res)
 		return (NULL);
 	res = res_split(res, s, c, x);
+	if (!res)
+		return (NULL);
 	return (res);
 }
+/*
+int	main()
+{
+	int	i;
+	char *s = "      split       this for   me  !       ";
+ 
+	char **res = ft_split(s, ' ');
+	i = 0;
+	while (res[i])
+	{
+		printf("%s\n", res[i]);
+		i++;
+	}
+	free(res);
+}*/

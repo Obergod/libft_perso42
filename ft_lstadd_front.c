@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 15:18:08 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 16:16:53 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/14 19:16:06 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	new->next = 	*lst;
+	new->next = *lst;
 	*lst = new;
 }
 /*

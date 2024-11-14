@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 15:10:30 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/11 15:18:00 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/14 17:37:01 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*stock;
 
-	stock = malloc(sizeof(t_list));
+	stock = (void *)malloc(sizeof(t_list));
 	if (!stock)
 		return (NULL);
 	stock->content = content;
