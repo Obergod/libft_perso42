@@ -6,7 +6,7 @@
 /*   By: mafioron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 17:45:13 by mafioron          #+#    #+#             */
-/*   Updated: 2024/11/14 19:19:04 by mafioron         ###   ########.fr       */
+/*   Updated: 2024/11/16 15:37:33 by mafioron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		ft_lstadd_back(&res, stock);
 		lst = lst->next;
 	}
-	ft_lstclear(&lst, del);
 	return (res);
 }
 /*
